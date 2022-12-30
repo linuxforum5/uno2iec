@@ -496,7 +496,7 @@ bool MainWindow::checkConnectRequest(QByteArray& buffer)
 		return false;
 
 	// extract version number.
-	const QString verString(buffer.mid(connectPos + ConnectionString.length(), crPos - connectPos));
+	const QString verString(buffer.mid(connectPos + ConnectionString.length(), crPos - ConnectionString.length()));
 	ushort receivedProtoVersion = verString.toInt();
 	if(CURRENT_UNO2IEC_PROTOCOL_VERSION not_eq receivedProtoVersion) {
 		Log("MAIN", error, QString("Received connection string from arduino, but the protocol version (%1) mismatched our "
